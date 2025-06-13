@@ -1,8 +1,11 @@
+// App.tsx
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./App.css";
 import { WorldMap } from "./WorldMap";
+import { useParams } from "react-router-dom";
 
+// ----------- Composants ----------
 const Header = () => (
   <header className="relative w-full h-screen z-50 bg-white/80 backdrop-blur shadow-md flex flex-col justify-start items-center">
     <video autoPlay loop muted className="hero-video">
@@ -10,11 +13,7 @@ const Header = () => (
     </video>
 
     <div className="z-10 grid grid-cols-2 gap-20">
-      <img
-        src="tv-removebg-preview.png"
-        alt="logo"
-        className="h-[24vh]"
-      />
+      <img src="tv-removebg-preview.png" alt="logo" className="h-[24vh]" />
       <nav className="grid grid-cols-4 gap-10 text-lg font-medium text-white mb-6 items-center">
         <Link to="/" className="hover:text-sky-500">Accueil</Link>
         <Link to="/destinations" className="hover:text-sky-500">Destinations</Link>
@@ -22,6 +21,7 @@ const Header = () => (
         <Link to="/contact" className="hover:text-sky-500">Contact</Link>
       </nav>
     </div>
+
     <div className="">
       <motion.h1
         className="text-5xl md:text-6xl font-extrabold text-sky-700 mb-4 items-center"
@@ -43,15 +43,10 @@ const Header = () => (
   </header>
 );
 
-
 const Header2 = () => (
-  <header className="relative z-50 bg-white  flex flex-col justify-start items-center">
-    <div className="z-10 grid grid-cols-2 gap-20 ">
-      <img
-        src="tv-removebg-preview.png"
-        alt="logo"
-        className="h-[24vh]"
-      />
+  <header className="relative z-50 bg-white flex flex-col justify-start items-center">
+    <div className="z-10 grid grid-cols-2 gap-20">
+      <img src="tv-removebg-preview.png" alt="logo" className="h-[24vh]" />
       <nav className="grid grid-cols-4 text-lg font-medium text-white items-center">
         <Link to="/" className="hover:text-sky-500">Accueil</Link>
         <Link to="/destinations" className="hover:text-sky-500">Destinations</Link>
@@ -68,52 +63,53 @@ const Footer = () => (
   </footer>
 );
 
+// ----------- Pages ----------
+
 const Home = () => (
   <div className="w-48 min-h-screen flex flex-col items-center text-center relative overflow-x-hidden">
     <Header />
-<div className="relative z-10 mt-100 space-y-24 px-4 md:px-10 pt-50">
-  <h1>Trouvez votre prochaine inspiration</h1>
-  <WorldMap/>
-  <section className="grid md:grid-cols-2 gap-10 items-center">
-    <p className="text-gray-700 text-lg">
-      Capturez l’essence de vos voyages avec nos astuces photo. Apprenez à créer des souvenirs inoubliables, qu’importe votre équipement.
-  </p>
-  <div>
-    <h2 className="text-3xl font-bold text-sky-700 mb-4">Immortalisez vos souvenirs</h2>
-    <p className="text-gray-700 text-lg">
-      Capturez l’essence de vos voyages avec nos astuces photo. Apprenez à créer des souvenirs inoubliables, qu’importe votre équipement.
-    </p>
-  </div>
-   <div>
-    <img src="public/back-view-woman-going-up-stairs.jpg" alt="Photographe en voyage" className="content-image" />
-  </div>
-</section>
+    <div className="relative z-10 mt-100 space-y-24 px-4 md:px-10 pt-50">
+      <h1>Trouvez votre prochaine destination</h1>
+      <WorldMap />
+      {/* Sections */}
+      <section className="grid md:grid-cols-2 gap-10 items-center">
+        <p className="text-gray-700 text-lg">
+          Capturez l’essence de vos voyages avec nos astuces photo. Apprenez à créer des souvenirs inoubliables, qu’importe votre équipement.
+        </p>
+        <div>
+          <h2 className="text-3xl font-bold text-sky-700 mb-4">Immortalisez vos souvenirs</h2>
+          <p className="text-gray-700 text-lg">
+            Capturez l’essence de vos voyages avec nos astuces photo. Apprenez à créer des souvenirs inoubliables, qu’importe votre équipement.
+          </p>
+        </div>
+        <div>
+          <img src="public/back-view-woman-going-up-stairs.jpg" alt="Photographe en voyage" className="content-image" />
+        </div>
+      </section>
 
-<section className="grid md:grid-cols-2 gap-10 items-center">
-  <div>
-    <h2 className="text-3xl font-bold text-sky-700 mb-4">Voyagez responsable</h2>
-    <p className="text-gray-700 text-lg">
-      Explorez le monde en respectant la planète. TravelVerse vous guide vers des pratiques éthiques et durables pour un tourisme conscient.
-    </p>
-  </div>
-  <div>
-    <img src="public/full-shot-smiley-girl-holding-map.jpg" alt="Voyage écoresponsable" className="content-image" />
-  </div>
-</section>
+      <section className="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 className="text-3xl font-bold text-sky-700 mb-4">Voyagez responsable</h2>
+          <p className="text-gray-700 text-lg">
+            Explorez le monde en respectant la planète. TravelVerse vous guide vers des pratiques éthiques et durables pour un tourisme conscient.
+          </p>
+        </div>
+        <div>
+          <img src="public/full-shot-smiley-girl-holding-map.jpg" alt="Voyage écoresponsable" className="content-image" />
+        </div>
+      </section>
 
-<section className="grid md:grid-cols-2 gap-10 items-center">
-  <div>
-    <h2 className="text-3xl font-bold text-sky-700 mb-4">Vivez la culture locale</h2>
-    <div>
-    <img src="public/full-shot-tourist-walking-with-luggage.jpg" alt="Culture et gastronomie" className="content-image" />
-  </div>
-    <p className="text-gray-700 text-lg">
-      Découvrez les traditions culinaires, les fêtes locales et l’art de vivre des destinations visitées. Un vrai plongeon dans l’authenticité.
-    </p>
-  </div>
-</section>
-
-
+      <section className="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 className="text-3xl font-bold text-sky-700 mb-4">Vivez la culture locale</h2>
+          <div>
+            <img src="public/full-shot-tourist-walking-with-luggage.jpg" alt="Culture et gastronomie" className="content-image" />
+          </div>
+          <p className="text-gray-700 text-lg">
+            Découvrez les traditions culinaires, les fêtes locales et l’art de vivre des destinations visitées. Un vrai plongeon dans l’authenticité.
+          </p>
+        </div>
+      </section>
     </div>
   </div>
 );
@@ -143,6 +139,22 @@ const Destinations = () => (
   </div>
 );
 
+const Destination = () => {
+  const { country } = useParams();
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white via-sky-50 to-sky-100 p-10">
+      <Header2 />
+      <h1 className="text-5xl font-bold text-center text-sky-700 mb-8">
+        Destination : {decodeURIComponent(country || "")}
+      </h1>
+      <p className="text-center text-gray-600 text-lg">
+        Découvrez les merveilles de {decodeURIComponent(country || "")}.
+      </p>
+    </div>
+  );
+};
+
 const Blog = () => (
   <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white p-10">
     <Header2 />
@@ -159,12 +171,14 @@ const Contact = () => (
   </div>
 );
 
+// ----------- App ----------
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destinations" element={<Destinations />} />
+        <Route path="/destination/:country" element={<Destination />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
