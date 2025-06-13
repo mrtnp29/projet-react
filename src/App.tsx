@@ -1,11 +1,10 @@
-// App.tsx
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./App.css";
 import { WorldMap } from "./WorldMap";
 import { useParams } from "react-router-dom";
 
-// ----------- Composants ----------
 const Header = () => (
   <header className="relative w-full h-screen z-50 bg-white/80 backdrop-blur shadow-md flex flex-col justify-start items-center">
     <video autoPlay loop muted className="hero-video">
@@ -71,7 +70,6 @@ const Home = () => (
     <div className="relative z-10 mt-100 space-y-24 px-4 md:px-10 pt-50">
       <h1>Trouvez votre prochaine destination</h1>
       <WorldMap />
-      {/* Sections */}
       <section className="grid md:grid-cols-2 gap-10 items-center">
         <p className="text-gray-700 text-lg">
           Capturez l’essence de vos voyages avec nos astuces photo. Apprenez à créer des souvenirs inoubliables, qu’importe votre équipement.
