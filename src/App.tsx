@@ -1,23 +1,30 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./App.css";
+import { WorldMap } from "./WorldMap";
 
 const Header = () => (
-  <header className="relative w-full h-screen z-50 bg-white/80 backdrop-blur shadow-md flex flex-col justify-center items-center">
+  <header className="relative w-full h-screen z-50 bg-white/80 backdrop-blur shadow-md flex flex-col justify-start items-center">
     <video autoPlay loop muted className="hero-video">
       <source src="1166309_Woman_Caucasian_3840x2160.mp4" type="video/mp4" />
     </video>
 
-    <div className="z-10 flex flex-col items-center">
-      <img src="tv-removebg-preview.png" alt="logo" height="200" className="mb-4" />
-      <nav className="grid grid-cols-4 gap-10 text-lg font-medium text-white mb-6">
+    <div className="z-10 grid grid-cols-2 gap-20">
+      <img
+        src="tv-removebg-preview.png"
+        alt="logo"
+        className="h-[24vh]"
+      />
+      <nav className="grid grid-cols-4 gap-10 text-lg font-medium text-white mb-6 items-center">
         <Link to="/" className="hover:text-sky-500">Accueil</Link>
         <Link to="/destinations" className="hover:text-sky-500">Destinations</Link>
         <Link to="/blog" className="hover:text-sky-500">Blog</Link>
         <Link to="/contact" className="hover:text-sky-500">Contact</Link>
       </nav>
+    </div>
+    <div className="">
       <motion.h1
-        className="text-5xl md:text-6xl font-extrabold text-sky-700 mb-4 text-center"
+        className="text-5xl md:text-6xl font-extrabold text-sky-700 mb-4 items-center"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
@@ -36,6 +43,25 @@ const Header = () => (
   </header>
 );
 
+
+const Header2 = () => (
+  <header className="relative z-50 bg-white  flex flex-col justify-start items-center">
+    <div className="z-10 grid grid-cols-2 gap-20 ">
+      <img
+        src="tv-removebg-preview.png"
+        alt="logo"
+        className="h-[24vh]"
+      />
+      <nav className="grid grid-cols-4 text-lg font-medium text-white items-center">
+        <Link to="/" className="hover:text-sky-500">Accueil</Link>
+        <Link to="/destinations" className="hover:text-sky-500">Destinations</Link>
+        <Link to="/blog" className="hover:text-sky-500">Blog</Link>
+        <Link to="/contact" className="hover:text-sky-500">Contact</Link>
+      </nav>
+    </div>
+  </header>
+);
+
 const Footer = () => (
   <footer className="bg-gradient-to-tr from-sky-100 to-white border-t mt-16 py-6 text-center text-lg text-sky-600">
     © 2025 TravelVerse • Explore the world, feel the vibes
@@ -43,47 +69,58 @@ const Footer = () => (
 );
 
 const Home = () => (
-  <div className="w-full min-h-screen flex flex-col items-center text-center relative overflow-x-hidden">
+  <div className="w-48 min-h-screen flex flex-col items-center text-center relative overflow-x-hidden">
     <Header />
-    <div className="relative z-10 mt-20 space-y-24 w-full px-4 md:px-10">
-      {/* Section 1 */}
-      <section className="grid md:grid-cols-2 gap-10 items-center">
-        <img src="https://source.unsplash.com/600x400/?travel,nature" alt="Voyage inspiration" className="rounded-2xl shadow-md w-full" />
-        <div>
-          <h2 className="text-3xl font-bold text-sky-700 mb-4">Trouvez votre prochaine inspiration</h2>
-          <p className="text-gray-700 text-lg">
-            Que vous rêviez de plages paradisiaques, de sommets enneigés ou de cités historiques, nous avons ce qu'il vous faut.
-          </p>
-        </div>
-      </section>
+<div className="relative z-10 mt-100 space-y-24 px-4 md:px-10 pt-50">
+  <h1>Trouvez votre prochaine inspiration</h1>
+  <WorldMap/>
+  <section className="grid md:grid-cols-2 gap-10 items-center">
+    <p className="text-gray-700 text-lg">
+      Capturez l’essence de vos voyages avec nos astuces photo. Apprenez à créer des souvenirs inoubliables, qu’importe votre équipement.
+  </p>
+  <div>
+    <h2 className="text-3xl font-bold text-sky-700 mb-4">Immortalisez vos souvenirs</h2>
+    <p className="text-gray-700 text-lg">
+      Capturez l’essence de vos voyages avec nos astuces photo. Apprenez à créer des souvenirs inoubliables, qu’importe votre équipement.
+    </p>
+  </div>
+   <div>
+    <img src="public/back-view-woman-going-up-stairs.jpg" alt="Photographe en voyage" className="content-image" />
+  </div>
+</section>
 
-      {/* Section 2 */}
-      <section className="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 className="text-3xl font-bold text-sky-700 mb-4">Une communauté de passionnés</h2>
-          <p className="text-gray-700 text-lg">
-            Rejoignez une communauté de voyageurs qui partagent leurs expériences, conseils et coups de cœur à travers le monde.
-          </p>
-        </div>
-        <img src="https://source.unsplash.com/600x400/?people,travel" alt="Communauté de voyageurs" className="rounded-2xl shadow-md w-full" />
-      </section>
+<section className="grid md:grid-cols-2 gap-10 items-center">
+  <div>
+    <h2 className="text-3xl font-bold text-sky-700 mb-4">Voyagez responsable</h2>
+    <p className="text-gray-700 text-lg">
+      Explorez le monde en respectant la planète. TravelVerse vous guide vers des pratiques éthiques et durables pour un tourisme conscient.
+    </p>
+  </div>
+  <div>
+    <img src="public/full-shot-smiley-girl-holding-map.jpg" alt="Voyage écoresponsable" className="content-image" />
+  </div>
+</section>
 
-      {/* Section 3 */}
-      <section className="grid md:grid-cols-2 gap-10 items-center">
-        <img src="https://source.unsplash.com/600x400/?blog,adventure" alt="Blog de voyage" className="rounded-2xl shadow-md w-full" />
-        <div>
-          <h2 className="text-3xl font-bold text-sky-700 mb-4">Des récits et astuces de voyage</h2>
-          <p className="text-gray-700 text-lg">
-            Découvrez nos articles pour préparer vos séjours, éviter les pièges touristiques et vivre des expériences uniques.
-          </p>
-        </div>
-      </section>
+<section className="grid md:grid-cols-2 gap-10 items-center">
+  <div>
+    <h2 className="text-3xl font-bold text-sky-700 mb-4">Vivez la culture locale</h2>
+    <div>
+    <img src="public/full-shot-tourist-walking-with-luggage.jpg" alt="Culture et gastronomie" className="content-image" />
+  </div>
+    <p className="text-gray-700 text-lg">
+      Découvrez les traditions culinaires, les fêtes locales et l’art de vivre des destinations visitées. Un vrai plongeon dans l’authenticité.
+    </p>
+  </div>
+</section>
+
+
     </div>
   </div>
 );
 
 const Destinations = () => (
   <div className="min-h-screen bg-gradient-to-b from-white via-sky-50 to-sky-100 p-10">
+    <Header2 />
     <h2 className="text-4xl font-bold text-center text-sky-700 mb-8">Nos Destinations</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {["Islande", "Vietnam", "Brésil"].map((pays) => (
@@ -108,7 +145,7 @@ const Destinations = () => (
 
 const Blog = () => (
   <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white p-10">
-    <Header />
+    <Header2 />
     <h2 className="text-4xl font-bold text-center text-sky-700 mb-8">Blog de voyage</h2>
     <p className="text-center text-gray-600">À venir : récits d'aventures, conseils pratiques et témoignages.</p>
   </div>
@@ -116,7 +153,7 @@ const Blog = () => (
 
 const Contact = () => (
   <div className="min-h-screen bg-gradient-to-tr from-white to-blue-50 p-10">
-    <Header />
+    <Header2 />
     <h2 className="text-4xl font-bold text-center text-sky-700 mb-8">Contactez-nous</h2>
     <p className="text-center text-gray-600">Une question ? Envie de collaborer ? Écrivez-nous !</p>
   </div>
